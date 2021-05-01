@@ -1,31 +1,33 @@
 import "./App.css";
 import React from "react";
-import bmr from "../api/index";
-// import queryType from "../api/queryType";
+import vsm from "../api/index";
 
 import SearchBar from "./Header/SearchBar";
 import Result from "./Result/Result";
 
 class App extends React.Component {
-  state = { result: [], error: "", title: {}, time: 0 };
-  componentDidMount = async () => {
-    const res = await bmr.get('/gettitle');
-    this.setState({title: res["data"]})
-  }
+  state = { result: [], score: [], error: "", time: 0 };
 
-  onSearchSubmit = async (query) => {
+  onSearchSubmit = async (query, alpha) => {
     this.setState({ error: "" });
     if (query) {
       var t0 = performance.now();
-      const res = await bmr.get(`/booleanquery/${query}`);
+
+      const res = await vsm.post('/query', {query, alpha});
+
       var t1 = (performance.now() - t0) / 1000;
+
       this.setState({ time: t1.toFixed(3) });
+
       if (res.data) {
+        
         this.setState({ result: res["data"]["result"] });
+        this.setState({ score: res["data"]["score"] });
         this.setState({ error: res["data"]["error"] });
       }
     } else {
       this.setState({ result: [] });
+      this.setState({ score: [] });
       this.setState({ error: "" });
     }
   };
@@ -37,8 +39,8 @@ class App extends React.Component {
 
         <Result
           result={this.state.result}
+          score={this.state.score}
           error={this.state.error}
-          title={this.state.title}
           time={this.state.time}
         />
       </div>

@@ -7,9 +7,7 @@ class Result extends React.Component {
     if (this.props.error !== "") {
       return (
         <div>
-          <p>
-            About {this.props.result.length} results ({this.props.time} seconds)
-          </p>
+          <p>About 0 results ({this.props.time} seconds)</p>
           <h2>{this.props.error}</h2>
         </div>
       );
@@ -21,46 +19,47 @@ class Result extends React.Component {
             About {this.props.result.length} results ({this.props.time} seconds)
           </p>
           <div className="result">
-            <Grid container spacing={3}>
-              <Grid item xs={8}>
-                <div className="title">
-                  <Paper variant="outlined" className="">
-                    <h4>Doc Titles</h4>
-                  </Paper>
-                  {this.props.result.map((n) => {
-                    return (
-                      <Paper key={n} variant="outlined" className="">
-                        <p>{this.props.title[n]}</p>
-                      </Paper>
-                    );
-                  })}
-                </div>
-              </Grid>
-
+            <Grid container justify="center">
               <Grid item xs={4}>
-                <div className="ids">
-                  <Paper variant="outlined">
-                    <h4>Doc IDs</h4>
-                  </Paper>
-                  {this.props.result.map((n) => {
-                    return (
-                      <Paper key={n} variant="outlined">
-                        <p>{n}</p>
+                <Paper variant="outlined">
+                  <Grid container spacing={3} justify="center">
+                    <Grid item xs={6}>
+                      <h4>Score</h4>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <h4>Docids</h4>
+                    </Grid>
+                  </Grid>
+                </Paper>
+                {this.props.result.map((n, index) => {
+                  return (
+                    <div key={index}>
+                      <Paper variant="outlined" className="result">
+                        <Grid container spacing={3} justify="center">
+                          <Grid item xs={6}>
+                            <p>{this.props.score[index]}</p>
+                          </Grid>
+                          <Grid item xs={6}>
+                            <p>{n}</p>
+                          </Grid>
+                        </Grid>
                       </Paper>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </Grid>
             </Grid>
           </div>
         </div>
       );
     } else {
-      return <div>
-        <p>
-          About {this.props.result.length} results ({this.props.time} seconds)
-        </p>
-      </div>;
+      return (
+        <div>
+          <p>
+            About {this.props.result.length} results ({this.props.time} seconds)
+          </p>
+        </div>
+      );
     }
   }
 }

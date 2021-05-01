@@ -1,20 +1,13 @@
-.searchbar {
-    margin: 0 30%;
-}
-
 .heading {
-    margin: 0 0 20px 0;
+    margin: 0;
 }
 .paperTitle {
     padding: 10px 0;
     margin: 5px 0;
 }
-.title {
-    margin-left: 20px;
-}
 
-.ids {
-    margin-right: 20px;
+.result p {
+    margin: 5px 0;
 }
 
 .appbars {
@@ -25,6 +18,7 @@
     /* background-color: #202125 !important; */
     /* border-color: #77787e !important; */
     height: 40px !important;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,10 +26,8 @@
     /* up right down left */
     padding: 2px 5px 2px 20px;
 }
-
-.paperinput {
-    flex-grow: 2;
-    /* color: white !important; */
+.inputbase1 {
+    width: 100% !important;
 }
 
 .divider {
