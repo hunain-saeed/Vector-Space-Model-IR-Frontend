@@ -1,7 +1,13 @@
-# Boolean Model of IR
+# Vector-Space-Model-Information-Retrieval
 
-Frontend for Boolean Model of IR, developed using React, Material-UI, and CSS. <br />
-Backend is developed on Flask: [Boolean-Model-Information-Retrieval-Backend](https://github.com/hunain-saeed/Boolean-Model-Information-Retrieval-Backend)
+
+
+## About
+
+The vector space model is an algebraic model for representing text documents as vectors of identifiers. It is used in information filtering, information retrieval, indexing, and relevancy rankings.
+
+Frontend for Vector Space Model of IR is developed using React, Material-UI, and CSS. <br />
+Backend is developed on Flask: [Vector-Space-Model-Information-Retrieval-Backend](https://github.com/hunain-saeed/Vector-Space-Model-Information-Retrieval-Backend)
 
 Installation and Setup Instructions
 Clone down this repository. You will need node and npm installed globally on your machine.
